@@ -37,6 +37,11 @@ Create rules to open ports to the internet, or to a specific IPv4 address or ran
 - [Manual Configuration and Installation](#manual)
 - [Portainer Installation](#portainer)
 - [Usage](#usage)
+	- [Website](#website)
+	- [Webserver](#webserver)
+	- [Redis](#redis)
+	- [phpMyAdmin](#phpmyadmin)
+	- [backup](#backup)					  
 
 ## Automatic
 
@@ -195,7 +200,7 @@ You can now use the `up` command:
 docker-compose up -d
 ```
 
-#### Docker run reference
+### Docker run reference
 
 [https://docs.docker.com/engine/reference/run/](https://docs.docker.com/engine/reference/run/)
 
@@ -207,21 +212,17 @@ You should see the "Laravel" page in your browser. If not, please check if your 
 https://example.com
 ```
 
-add or remove code in the ```./php-fpm/php/conf.d/security.ini``` file for custom php.ini configurations
+add or remove code in the ./php-fpm/php/conf.d/security.ini file for custom php.ini configurations
 
 [https://www.php.net/manual/en/configuration.file.php](https://www.php.net/manual/en/configuration.file.php)
 
-add or remove code in the ```./php-fpm/php-fpm.d/z-www.conf``` file for php-fpm configurations
+You should make changes custom host configurations ```./php-fpm/php-fpm.d/z-www.conf``` then must restart service, FPM uses php.ini syntax for its configuration file - php-fpm.conf, and pool configuration files.
 
-Or you should make changes custom host configurations then must restart service
+[https://www.php.net/manual/en/install.fpm.configuration.php](https://www.php.net/manual/en/install.fpm.configuration.php)
 
 ```
 docker container restart laravel
 ```
-
-FPM uses php.ini syntax for its configuration file - php-fpm.conf, and pool configuration files.
-
-[https://www.php.net/manual/en/install.fpm.configuration.php](https://www.php.net/manual/en/install.fpm.configuration.php)
 
 add and/or remove laravel site folders and files with any ftp client program in ```./laravel/webapp``` folder.
 <br />You can also visit `https://example.com` to access website after starting the containers.
@@ -242,7 +243,7 @@ Database host = database
 
 [https://mariadb.com/kb/en/configuring-mariadb-with-option-files/](https://mariadb.com/kb/en/configuring-mariadb-with-option-files/)
 
-#### Redis and Cache
+#### Redis
 
 You may configure your application's Redis settings via the config/database.php configuration file.
 
@@ -252,6 +253,8 @@ Redis host port = 6379
 
 [https://laravel.com/docs/9.x/redis](https://laravel.com/docs/9.x/redis)
 
+#### Cache
+ 
 Your application's cache configuration file is located at config/cache.php.
 
 [https://laravel.com/docs/9.x/cache#main-content](https://laravel.com/docs/9.x/cache#main-content)
