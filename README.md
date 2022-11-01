@@ -237,8 +237,6 @@ add or remove code in the ```./webserver/templates/nginx.conf.template``` file f
 
 The configuration for Laravel's database services is located in your application's config/database.php configuration file.
 
-Database host = database
-
 [https://laravel.com/docs/9.x/database](https://laravel.com/docs/9.x/database)
 
 [https://mariadb.com/kb/en/configuring-mariadb-with-option-files/](https://mariadb.com/kb/en/configuring-mariadb-with-option-files/)
@@ -246,10 +244,6 @@ Database host = database
 #### Redis
 
 You may configure your application's Redis settings via the config/database.php configuration file.
-
-Redis host = redis
-
-Redis host port = 6379
 
 [https://laravel.com/docs/9.x/redis](https://laravel.com/docs/9.x/redis)
 
